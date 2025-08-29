@@ -874,9 +874,8 @@ int control_finish (struct tunnel *t, struct call *c)
             strncpy (ip1, IPADDY (c->lac->localaddr), sizeof (ip1));
             strncpy (ip2, IPADDY (c->lac->remoteaddr), sizeof (ip2));
 #ifdef IP_ALLOCATION
-            if (c->lac->localaddr || c->lac->remoteaddr)
-                po = add_opt (po, "%s:%s", c->lac->localaddr ? ip1 : "",
-                              c->lac->remoteaddr ? ip2 : "");
+            po = add_opt (po, "%s:%s", c->lac->localaddr ? ip1 : "",
+                          c->lac->remoteaddr ? ip2 : "");
 #endif
 #ifdef __APPLE__
             if (c->lac->defaultroute)
@@ -1057,9 +1056,8 @@ int control_finish (struct tunnel *t, struct call *c)
                 po = add_opt (po, "defaultroute");
             strncpy (ip1, IPADDY (c->lac->localaddr), sizeof (ip1));
             strncpy (ip2, IPADDY (c->lac->remoteaddr), sizeof (ip2));
-            if (c->lac->localaddr || c->lac->remoteaddr)
-                po = add_opt (po, "%s:%s", c->lac->localaddr ? ip1 : "",
-                              c->lac->remoteaddr ? ip2 : "");
+            po = add_opt (po, "%s:%s", c->lac->localaddr ? ip1 : "",
+                          c->lac->remoteaddr ? ip2 : "");
             if (c->lac->authself)
             {
                 if (c->lac->pap_refuse)
